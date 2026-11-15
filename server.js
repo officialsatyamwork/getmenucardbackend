@@ -33,6 +33,7 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-app.listen(PORT, '127.0.0.1', () => {
-  console.log(`GetMenuCard backend running on http://127.0.0.1:${PORT}`);
+// Bind 0.0.0.0 so Render (and other hosts) can reach the service publicly
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`GetMenuCard backend running on port ${PORT}`);
 });
